@@ -28,7 +28,7 @@ def rainfall(lon,lat):
                 else:
                     after_words = "るだろう"
                 base_minutes += 10
-            print(before_words + info )
+            print(before_words + info +after_words)
             print("\033[34m   %s mm/h \033[0m" %str(var['Rainfall'])) 
             #print(var['Rainfall'] )
             time.sleep(2)
@@ -36,21 +36,21 @@ def retrun_rain_level(rainfall):
         if (rainfall == 0.0):
             rain_level = "雨は降らない"
         elif (rainfall < 1.0):
-            rain_level = "雨、ぽつぽつ"
+            rain_level = "雨、ぽつぽつ降る"
         elif (rainfall < 2.0):
-            rain_level = "弱い雨、しとしと"
+            rain_level = "弱い雨、しとしと降る"
         elif (rainfall < 3.0):
-            rain_level = "やや強い雨、サー"
+            rain_level = "やや強い雨、サーと降る"
         elif (rainfall < 20.0):
-            rain_level = "やや強い雨、ザーザー"
+            rain_level = "やや強い雨、ザーザーと降る"
         elif (rainfall < 30.0):
-            rain_level = "土砂降りで、傘をさしていてもぬれる雨"
+            rain_level = "土砂降りで、傘をさしていてもぬれる雨が降る"
         elif (rainfall < 40.0):
-            rain_level = "バケツをひっくり返したよう雨"
+            rain_level = "バケツをひっくり返したよう雨が降る"
         elif (rainfall < 50.0):
-            rain_level = "滝のように非常に激しい雨"
+            rain_level = "滝のように非常に激しい雨が降る"
         elif (rainfall >= 50.0):
-            rain_level = "息苦しくなるような圧迫感がある猛烈な雨"
+            rain_level = "息苦しくなるような圧迫感がある猛烈な雨が降る"
         return rain_level                
 
 if __name__ == "__main__":
