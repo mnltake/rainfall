@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
 #rainfall 
-def rainfall(lon,lat):
+def rainfall(lon, lat, crient_id):
+    import urllib.request
+    import json,time
     base_url = 'https://map.yahooapis.jp/weather/V1/place?'
-    crient_id = '******your id*************' #https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/js/#index1-1
     url = '%scoordinates=%s,%s&appid=%s&output=json' % (base_url, str(lon),str(lat), crient_id)
     response = urllib.request.urlopen(url).read()
     data_json = json.loads(response.decode('utf-8'))
@@ -34,28 +35,28 @@ def rainfall(lon,lat):
             time.sleep(2)
 def retrun_rain_level(rainfall):
         if (rainfall == 0.0):
-            rain_level = "雨は降らない"
+            rain_level = "雨は降"
         elif (rainfall < 1.0):
-            rain_level = "雨、ぽつぽつ降る"
+            rain_level = "雨、ぽつぽつ降"
         elif (rainfall < 2.0):
-            rain_level = "弱い雨、しとしと降る"
+            rain_level = "弱い雨、しとしと降"
         elif (rainfall < 3.0):
-            rain_level = "やや強い雨、サーと降る"
+            rain_level = "やや強い雨、サーと降"
         elif (rainfall < 20.0):
-            rain_level = "やや強い雨、ザーザーと降る"
+            rain_level = "やや強い雨、ザーザーと降"
         elif (rainfall < 30.0):
-            rain_level = "土砂降りで、傘をさしていてもぬれる雨が降る"
+            rain_level = "土砂降りで、傘をさしていてもぬれる雨が降"
         elif (rainfall < 40.0):
-            rain_level = "バケツをひっくり返したよう雨が降る"
+            rain_level = "バケツをひっくり返したよう雨が降"
         elif (rainfall < 50.0):
-            rain_level = "滝のように非常に激しい雨が降る"
+            rain_level = "滝のように非常に激しい雨が降"
         elif (rainfall >= 50.0):
-            rain_level = "息苦しくなるような圧迫感がある猛烈な雨が降る"
-        return rain_level                
+            rain_level = "息苦しくなるような圧迫感がある猛烈な雨が降"
+        return rain_level
 
 if __name__ == "__main__":
-    import urllib.request
-    import json,time
+
     lon = 135
     lat = 35
-    rainfall(lon,lat)
+    crient_id = '******your id*************' #https://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/js/#index1-1
+    rainfall(lon,lat,crient_id)
